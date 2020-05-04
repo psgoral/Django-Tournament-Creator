@@ -174,11 +174,13 @@ def match(response,match_id):
 
         return redirect('/match_' + str(match_id))
     else:
+        
         form = newComment()
+
         match = Match.objects.filter(id=match_id).get()
 
 
-        comments = Comment.objects.filter(id=match_id)
+        comments = Comment.objects.filter(id=match_id).all()
         context = {
             'match' : match,
             'form' : form,
