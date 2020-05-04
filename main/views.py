@@ -184,7 +184,6 @@ def match(response,match_id):
         new.match_id = match_id
         new.save()
 
-        return redirect('/match_' + str(match_id))
 
     return render(response,'main/match.html',context)
 
