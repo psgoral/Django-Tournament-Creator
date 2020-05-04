@@ -130,19 +130,17 @@
                                 </div>
                                 <hr style="background-color: gold;">
                                 <div class="card-body justify-content-md-center">
-                                    <div class="row-5 w-100">
 
-                                        {%for comment in comments%}
-                                        <div class="col-4 mt-1 p-2 w-100">
-                                            <h4 class="text-left">
-                                                {{comment.author}} : {{comment.message}}
-                                            </h4>
-                                            <p class="small text-white text-right" style="font-size:8px">
-                                                {{comment.date}}</p>
-                                        </div>
-                                        <hr style="background-color: orangered;">
-                                        {%endfor%}
+                                    {%for comment in comments%}
+                                    <div class="col-4 mt-1 p-2 w-100">
+                                        <h4 class="text-left">
+                                            {{comment.author}} : {{comment.message}}
+                                        </h4>
+                                        <p class="small text-white text-right" style="font-size:8px">
+                                            {{comment.date}}</p>
                                     </div>
+                                    <hr style="background-color: orangered;">
+                                    {%endfor%}
                                 </div>
                             </div>
 
