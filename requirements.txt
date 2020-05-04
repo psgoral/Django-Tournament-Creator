@@ -10,3 +10,4 @@ oauthlib==2.1.0
 Werkzeug==0.14.1
 WTForms==2.2.1
 psycopg2==2.8.5
+django-heroku==0.3.1
