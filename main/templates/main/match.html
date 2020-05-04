@@ -129,12 +129,12 @@
 
                                 </div>
                                 <hr style="background-color: gold;">
-                                <div class="card-body ">
+                                <div class="card-body">
 
                                     {%for comment in comments%}
-                                    <div class="row row-cols-3 ">
+                                    <div class="row-6 row-cols-3">
                                         <p class="col text-right" style="font-size: 32px;">{{comment.author}} : </p>
-                                        <p style="font-size: 24px;" class="col text-white"><em>{{comment.message}}</em></p>
+                                        <p style="font-size: 20px;" class="col text-white"><em>{{comment.message}}</em></p>
                                         <p class="col small text-secondary text-right" style="font-size:8px">{{comment.date}}</p>
                                     </div>
                                     <hr style="background-color: orangered;">
