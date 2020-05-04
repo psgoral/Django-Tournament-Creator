@@ -32,7 +32,7 @@
                                     {% if t.checked %}
                                     <a class="btn btn-danger w-100 m-1" href="/leave/{{t.id}}" role="button">Opuść</a>
                                     {% else %}
-                                    {% t.actual < t.number_of_players%}
+                                    {%if t.actual < t.number_of_players%}
                                     <a class="btn btn-success w-100 m-1" href="/join/{{t.id}}" role="button">Dołącz</a>
                                     {%else%}
                                     <a class="btn btn-success w-100 m-1 disabled" href="/join/{{t.id}}" role="button" disabled>Dołącz</a>
