@@ -130,15 +130,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row mt-3">
                             {%for comment in comments%}
-                            <div class="row mt-3">
-                                ELO KURWA
-                                <h3>
+                            <div class="col-6">
+                                <h4>
                                     <p class="small">{{comment.date}}</p> {{comment.author}} : {{comment.message}}
-                                </h3>
+                                </h4>
                             </div>
+                            <hr style="background-color: orangered;">
                             {%endfor%}
                         </div>
+                    </div>
     </div>
 </div>
 </div>

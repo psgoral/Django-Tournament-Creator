@@ -164,7 +164,7 @@ def match(response,match_id):
 
     current_user = response.user
 
-    match = Match.objects.filter(id=match_id)
+    match = Match.objects.filter(id=match_id).get()
 
     comments = Comment.objects.filter(match=match_id)
     print(comments)
@@ -180,7 +180,7 @@ def match(response,match_id):
     else:
 
         form = newComment()
-        
+
     context = {
         'match' : match,
         'form' : form,
