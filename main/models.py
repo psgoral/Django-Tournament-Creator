@@ -83,8 +83,8 @@ class Comment(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE)
     
-    message = Model.CharField(max_length=200)
+    message = models.CharField(max_length=200)
 
-    date = Model.DateTimeField(auto_now=True)
+    date = models.DateTimeField(auto_now=True)
 
 
