@@ -117,8 +117,8 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="col text-center collapse w-100" id="collapse_comment">
-                                        <form method="POST" class="input-group">
+                                    <div class="col text-center collapse" id="collapse_comment">
+                                        <form method="POST" class="input-group w-100">
                                             {% csrf_token %}
 
                                             {{form | crispy}}
