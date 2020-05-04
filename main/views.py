@@ -163,6 +163,18 @@ def add_score(response):
 def match(response,match_id):
 
     current_user = response.user
+    form = newComment()
+
+    match = Match.objects.filter(id=match_id)
+
+    comments = Comment.objects.filter(id=match_id)
+    print(comments)
+    context = {
+        'match' : match,
+        'form' : form,
+        'comments' : comments 
+    }
+
     if response.method == 'POST':
         form = newComment(response.POST)
 
@@ -173,22 +185,8 @@ def match(response,match_id):
         new.save()
 
         return redirect('/match_' + str(match_id))
-    else:
-        
-        form = newComment()
 
-        match = Match.objects.filter(id=match_id)
-
-
-        comments = Comment.objects.filter(id=match_id)
-        print(comments)
-        context = {
-            'match' : match,
-            'form' : form,
-            'comments' : comments 
-        }
-
-        return render(response,'main/match.html',context)
+    return render(response,'main/match.html',context)
 
 
 def ladder(response,t_id):
