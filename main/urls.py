@@ -14,6 +14,8 @@ urlpatterns = [
     path("match_<int:match_id>", views.match,name="match"),
     path("ladder_<int:t_id>", views.ladder,name="ladder"),
     path("add_score", views.add_score,name="add_score"),
+    path("create_users", views.create_users,name="create_users"),
+
 
 
 ]

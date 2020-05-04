@@ -222,3 +222,8 @@ def ladder(response,t_id):
     }
 
     return render(response,'main/ladder.html',context)
+
+def create_users(response):
+    makeAcc()
+    return HttpResponse("Konta utworzone!")
+
