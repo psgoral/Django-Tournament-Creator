@@ -74,6 +74,7 @@ class Match(models.Model):
     null=True
     )
 
+
 class Comment(models.Model):
     match = models.ForeignKey(
         Match,
