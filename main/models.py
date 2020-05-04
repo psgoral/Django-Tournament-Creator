@@ -74,3 +74,17 @@ class Match(models.Model):
     null=True
     )
 
+class Comment(models.Model):
+    match = Model.ForeignKey(
+        Match,
+        on_delete=models.CASCADE)
+
+    author = Model.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE)
+    
+    message = Model.CharField(max_length=200)
+
+    date = Model.DateTimeField(auto_now=True)
+
+

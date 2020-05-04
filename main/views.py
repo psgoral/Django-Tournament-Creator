@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
 
 from django.http import HttpResponse
-from main.forms import newTournament
+from main.forms import newTournament,newComment
 from django.contrib.auth.models import User
-from main.models import Tournament,CheckIn,Match
+from main.models import Tournament,CheckIn,Match,Comment
 from main.fun import *
 import math
 
@@ -157,18 +157,53 @@ def add_score(response):
         return redirect('/match_' + str(match_id))
     return redirect('/match_' + str(match_id))
     
+    
+
+
+# current_user = response.user
+
+#     if response.method == 'POST':
+#         form = newTournament(response.POST)
+            
+#         new = form.save(commit=False)
         
+#         new.owner_id = current_user.id
+#         new.save()
+
+#         # if new.typ == "T":
+#         #     generateTournament(new)
+#         return redirect('/tournaments')
+#     else:
+#         form = newTournament()
+
+
+#     return render(response,'main/new.html',{'form' : form})
+
+
+
+
 def match(response,match_id):
 
-    
-    match = Match.objects.filter(id=match_id).get()
+    current_user = response.user
+    if response.method == 'POST':
+        form = newComment(response.POST)
 
+        new = form.save(commit=False)
 
-    context = {
-        'match' : match,
-    }
+        new.author = currend_user
+        new.save()
 
-    return render(response,'main/match.html',context)
+        return redirect('/match_' + str(match_id))
+    else:
+        form = newTournament()
+        match = Match.objects.filter(id=match_id).get()
+
+        
+        context = {
+            'match' : match,
+        }
+
+        return render(response,'main/match.html',context)
 
 
 def ladder(response,t_id):
