@@ -169,6 +169,7 @@ def match(response,match_id):
         new = form.save(commit=False)
 
         new.author = current_user
+        new.match_id = match_id
         new.save()
 
         return redirect('/match_' + str(match_id))
