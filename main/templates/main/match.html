@@ -117,33 +117,35 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="col text-center collapse" id="collapse_comment">
-                                        <form method="POST" class="input-group w-100">
-                                            {% csrf_token %}
-
-                                            {{form | crispy}}
-
-                                            <button type="submit" class="btn btn-success">Dodaj</button>
-                                        </form>
-                                    </div>
-
                                 </div>
+                                <div class="col text-center collapse" id="collapse_comment">
+                                    <form method="POST" class="input-group w-100">
+                                        {% csrf_token %}
+
+                                        {{form | crispy}}
+
+                                        <button type="submit" class="btn btn-success">Dodaj</button>
+                                    </form>
+                                </div>
+
                                 <hr style="background-color: gold;">
                                 <div class="card-body">
 
                                     {%for comment in comments%}
                                     <div class="row row-cols-3">
                                         <p class="col" style="font-size: 32px;">{{comment.author}} : </p>
-                                        <p class="col text-white" style="font-size: 20px;"><em>{{comment.message}}</em></p>
-                                        <p class="col small text-secondary text-right" style="font-size:14px">{{comment.date}}</p>
+                                        <p class="col text-white" style="font-size: 20px;"><em>{{comment.message}}</em>
+                                        </p>
+                                        <p class="col small text-secondary text-right" style="font-size:14px">
+                                            {{comment.date}}</p>
                                     </div>
                                     <hr style="background-color: orangered;">
                                     {%endfor%}
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
     </div>
-    {% endblock %}
+{% endblock %}
 </div>
