@@ -201,6 +201,7 @@ def match(response,match_id):
         
         context = {
             'match' : match,
+            'form' : form
         }
 
         return render(response,'main/match.html',context)

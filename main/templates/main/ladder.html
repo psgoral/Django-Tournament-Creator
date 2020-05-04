@@ -18,7 +18,7 @@
         <div class="m-1 d-flex">
             {% if match.score1 != match.score2%}
             <div class=" card w-100 border border-success" style="height: auto; background-color: rgba(0, 45, 0, 0.85);">
-                {%elif match.score1byp1 != match.score1byp2 and match.score1byp1 != Null or match.score2byp1 != match.score2byp2 and match.score2byp2 != Null %}
+                {%elif match.score1byp1 != match.score1byp2 or match.score2byp1 != match.score2byp2%}
                 <div class=" card w-100 border-danger" style="height: auto; background-color: rgba(45, 0, 0, 0.85);">
                     {%else%}
                     <div class=" card w-100 border" style="height: auto; background-color: rgba(0, 0, 0, 0.75);">
