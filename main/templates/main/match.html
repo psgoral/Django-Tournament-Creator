@@ -81,13 +81,6 @@
                                             </p>
                                         </div>
                                         <div class="col text-center">
-                                            <button class="btn btn-primary w-100 m-1" type="button"
-                                                data-toggle="collapse" data-target="#collapse_comment"
-                                                aria-expanded="false" aria-controls="collapse_comment">
-                                                Dodaj komentarz
-                                            </button>
-                                        </div>
-                                        <div class="col text-center">
                                             <a class="btn btn-danger w-100 m-1" href="/addscore/" role="button">Zgłoś
                                                 zawodnika</a>
                                         </div>
@@ -117,15 +110,6 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div>
-                                <div class="col text-center collapse" id="collapse_comment">
-                                    <form method="POST" class="input-group w-100">
-                                        {% csrf_token %}
-
-                                        {{form | crispy}}
-
-                                        <button type="submit" class="btn btn-success">Dodaj</button>
-                                    </form>
                                 </div>
 
                                 <hr style="background-color: gold;">
