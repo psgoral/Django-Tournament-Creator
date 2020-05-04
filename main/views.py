@@ -195,7 +195,7 @@ def match(response,match_id):
 
         return redirect('/match_' + str(match_id))
     else:
-        form = newTournament()
+        form = newComment()
         match = Match.objects.filter(id=match_id).get()
 
         
