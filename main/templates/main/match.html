@@ -141,9 +141,7 @@
                                     </div>
                                     <hr style="background-color: orangered;">
                                     {%endfor%}
-                                    <hr style="background-color: gold;">
-                                    <hr style="background-color: gold;">
-                                    <form method="POST" class="input-group w-100 mt-2">
+                                    <form method="POST" class="input-group text-center mt-2">
                                         {% csrf_token %}
 
                                         {{form | crispy}}
