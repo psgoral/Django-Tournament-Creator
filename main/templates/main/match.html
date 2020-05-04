@@ -128,22 +128,22 @@
                                     </div>
 
                                 </div>
+                                <div class="card-body mt-5">
+                                    {%for comment in comments%}
+                                    <div class="col m-3 p-5 text-center w-100">
+                                        <h4>
+                                            {{comment.author}} : {{comment.message}}
+                                            <p class="small text-white text-right" style="font-size:12px">
+                                                {{comment.date}}</p>
+                                        </h4>
+                                    </div>
+                                    <hr style="background-color: orangered;">
+                                    {%endfor%}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6 mt-4 border" style="background-color: rgba(0, 0, 0, 0.65);">
-                            {%for comment in comments%}
-                            <div class="col w-100">
-                                <h4>
-                                    {{comment.author}} : {{comment.message}}
-                                    <p class="small text-white text-right" style="font-size:12px">{{comment.date}}</p>
-                                </h4>
-                            </div>
-                            <hr style="background-color: orangered;">
-                            {%endfor%}
+
                         </div>
                     </div>
-
     </div>
+    {% endblock %}
 </div>
-</div>
-{% endblock %}
