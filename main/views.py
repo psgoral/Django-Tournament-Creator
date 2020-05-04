@@ -177,10 +177,10 @@ def match(response,match_id):
         
         form = newComment()
 
-        match = Match.objects.filter(id=match_id).get()
+        match = Match.objects.filter(id=match_id)
 
 
-        comments = Comment.objects.filter(id=match_id).get()
+        comments = Comment.objects.filter(id=match_id).
         print(comments)
         context = {
             'match' : match,
