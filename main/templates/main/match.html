@@ -141,15 +141,16 @@
                                     </div>
                                     <hr style="background-color: orangered;">
                                     {%endfor%}
-                                    <div class="row text-center">
-
-                                        <form method="POST" class="input-group mt-2">
+                                    <div class="row row-cols-3 text-center">
+                                        <div class="col-3"></div>
+                                        <form method="POST" class="col-3 input-group mt-2">
                                             {% csrf_token %}
                                             
                                             {{form | crispy}}
                                             
                                             <button type="submit" class="btn btn-success">Dodaj komentarz</button>
                                         </form>
+                                        <div class="col-3"></div>
                                     </div>
 
                                 </div>
