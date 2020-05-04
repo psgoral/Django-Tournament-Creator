@@ -160,28 +160,6 @@ def add_score(response):
     
 
 
-# current_user = response.user
-
-#     if response.method == 'POST':
-#         form = newTournament(response.POST)
-            
-#         new = form.save(commit=False)
-        
-#         new.owner_id = current_user.id
-#         new.save()
-
-#         # if new.typ == "T":
-#         #     generateTournament(new)
-#         return redirect('/tournaments')
-#     else:
-#         form = newTournament()
-
-
-#     return render(response,'main/new.html',{'form' : form})
-
-
-
-
 def match(response,match_id):
 
     current_user = response.user
@@ -198,7 +176,8 @@ def match(response,match_id):
         form = newComment()
         match = Match.objects.filter(id=match_id).get()
 
-        comments = Comment.objects.filter(id=match_id).get()
+
+        comments = Comment.objects.filter(id=match_id)
         context = {
             'match' : match,
             'form' : form,
