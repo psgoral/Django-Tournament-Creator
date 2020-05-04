@@ -180,7 +180,7 @@ def match(response,match_id):
         match = Match.objects.filter(id=match_id)
 
 
-        comments = Comment.objects.filter(id=match_id).
+        comments = Comment.objects.filter(id=match_id)
         print(comments)
         context = {
             'match' : match,
