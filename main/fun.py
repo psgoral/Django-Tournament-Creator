@@ -25,7 +25,14 @@ import random
 #         left = left - left/2
 #         print(left)
 #     return rounds
+def makeAcc():
 
+    names = ['mateusz','admin','boss','noob']
+    for name in names:
+        user=User.objects.create_user(name, password='mat123')
+        user.is_superuser=True
+        user.is_staff=True
+        user.save()
 
 def generateTournament(Tournament):
 

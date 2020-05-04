@@ -28,7 +28,6 @@ class CheckIn(models.Model):
         Tournament,
         on_delete=models.CASCADE)
 
-
 class Match(models.Model):
     round_number = models.IntegerField()
     match_number = models.IntegerField()
@@ -73,7 +72,6 @@ class Match(models.Model):
     score2byp2 = models.IntegerField(
     null=True
     )
-
 
 class Comment(models.Model):
     match = models.ForeignKey(
