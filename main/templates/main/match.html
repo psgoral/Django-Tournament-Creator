@@ -1,0 +1,119 @@
+{% extends 'main/base.html' %}
+
+
+{%block content%}
+<div class=" card w-100 border" style="background-color: rgba(255, 255, 255, 0.05);">
+    <div class="card-header" style="background-color: rgba(0, 0, 0, 0.15);">
+        <a href="ladder_{{match.tournament.id}}" class="text-white"> <h3><-Wróc do drabinki turnieju {{match.tournament.name}}</h3></a>
+    </div>
+    <div class="card-body">
+        <div class="row justify-content-md-center">
+            <div class="col-8">
+                <div class="card m-2 text-center border" style="background-color: rgba(0, 0, 0, 0.65);">
+                    <div class="card-header">
+                        <div class="row ">
+                            <div class="col-5 text-center">
+                                {% if match.score1 > match.score2%}
+                                <h2 class="text-success">{{match.player1.username}}</h2>
+                                {%else%}
+                                <h2>{{match.player1.username}}</h2>
+                                {%endif%}
+                            </div>
+                            <div class="col-2">
+                                <h2> </h2>
+                            </div>
+                            <div class="col-5 text-center">
+                                {% if match.score2 > match.score1%}
+                                <h2 class="text-success">{{match.player2.username}}</h2>
+                                {%else%}
+                                <h2>{{match.player2.username}}</h2>
+                                {%endif%}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <div class="row ">
+                            <div class="col-5 text-center">
+                                {% if match.score1 > match.score2%}
+                                <h1 class="display-1 text-success">{{match.score1}}</h1>
+                                {%else%}
+                                <h1 class="display-1">{{match.score1}}</h1>
+                                {%endif%}
+                                {% if match.score1byp1 != Null and match.score2byp1 != Null%}
+                                {{match.score1byp1}} - {{match.score2byp1}}
+                                {%endif%}
+
+                            </div>
+                            <div class="col-2 text-center">
+                                <h1 class="display-1">-</h1>
+                            </div>
+                            <div class="col-5 text-center">
+                                {% if match.score2 > match.score1%}
+                                <h1 class="display-1 text-success">{{match.score2}}</h1>
+                                {%else%}
+                                <h1 class="display-1">{{match.score2}}</h1>
+                                {%endif%}
+                                {% if match.score1byp2 != Null and match.score2byp2 != Null%}
+                                {{match.score1byp2}} - {{match.score2byp2}}
+                                {%endif%}
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr style="background-color: gold;">
+                    <div class="card-body ">
+                        <div class="row ">
+                            <div class="col text-center">
+                                <p>
+                                    {%if user.id == match.player1.id or user.id == match.player2.id%}
+                                    <button class="btn btn-primary w-100 m-1" type="button" data-toggle="collapse"
+                                        data-target="#collapse_score" aria-expanded="false"
+                                        aria-controls="collapse_score">
+                                        Dodaj wynik
+                                    </button>
+                                    {%else%}
+                                    <button class="btn btn-primary w-100 m-1 disabled" type="button" data-toggle="collapse"
+                                        data-target="#collapse_score" aria-expanded="false"
+                                        aria-controls="collapse_score" disabled>
+                                        Dodaj wynik
+                                    </button>
+                                    {%endif%}
+                                </p>
+                            </div>
+                            <div class="col text-center">
+                                <a class="btn btn-success w-100 m-1" href="/addscore/" role="button">Dodaj komentarz</a>
+                            </div>
+                            <div class="col text-center">
+                                <a class="btn btn-danger w-100 m-1" href="/addscore/" role="button">Zgłoś zawodnika</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="col text-center collapse " id="collapse_score">
+                            <form action="add_score" method="POST" class="input-group">
+                                {% csrf_token %}
+                                <input type="hidden" id="match_id" name="match_id" value="{{match.id}}">
+                                <input type="hidden" id="player_id" name="player_id" value="{{user.id}}">
+                                <div class="input-group border-top">
+                                <div class="row w-100 mb-3 justify-content-md-center">
+                                    <div class="col-5 m-2 ">
+                                        <h4>{{match.player1.username}}:</h4>
+                                        <input type="text" id="score1" name="score1" style="font-size: 40px; width: 100px"/>  
+                                    </div>
+                                    <div class=" col-5 m-2 w-100">
+                                        <h4>{{match.player2.username}}:</h4>
+
+                                        <input type="text" id="score2" name="score2" style="font-size: 40px; width: 100px"/>  
+                                    </div>
+                                </div>
+                                <input class="btn btn-success w-100 m-1" type="submit"/>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

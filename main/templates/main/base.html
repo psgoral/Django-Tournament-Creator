@@ -1,0 +1,58 @@
+{% load static %}
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="{% static 'main/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <title>GG</title>
+
+</head>
+
+<body >
+    <div class="container-fluid "
+        style=" background-image: linear-gradient(to bottom,black,rgb(61, 42, 6)); color: #F67138; font-family: 'Poppins'; font-size: 12px; min-height: 100%;">
+        <!-- background-image:url( static/bg.png); -->
+        <div class="row" style="min-height: 100%;">
+            <div class="col-2 border-right text-center" style="background-color: rgba(0, 0, 0, 0.1); font-size: 24px; ">
+                <a class="nav-link text-white" href="">Strona Główna</a>
+                <hr style="background-color: orangered;">
+                <a class="nav-link text-white" href="/new">Nowy turniej</a>
+                <a class="nav-link text-white" href="/tournaments">Aktualne turnieje</a>
+                <hr style="background-color: orangered;">
+                {% if user.is_authenticated%}
+                Zalogowany jako: {{user.username}}
+                <a class="nav-link text-white" href="/logout">Wyloguj</a>
+                {%else%}
+                <a class="nav-link text-white" href="/login">Zaloguj</a>
+                <a class="nav-link text-white" href="/register">Rejestracja</a>
+                {%endif%}
+
+
+
+            </div>
+            <div class="col-10  mt-3">
+
+
+                    {%block content%}
+
+                    {% endblock %}
+            </div>
+
+        </div>
+
+</body>
+
+</html>

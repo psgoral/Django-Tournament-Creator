@@ -1,0 +1,96 @@
+{% extends 'main/base.html' %}
+
+
+{%block content%}
+<div class=" card" style="background-color: rgba(255, 255, 255, 0.00);">
+    <div class="card-header text-center " style="background-color: rgba(0, 0, 0, 0.15);">
+        <h1>Aktualne turnieje</h1>
+        <hr style="background-color: orangered; width: 100%;">
+
+    </div>
+    <div class="card-body">
+        <div class="row ">
+            {% for t in tournaments%}
+            <div class="col-4">
+                <div class="card m-3 text-center border" style="background-color: rgba(255, 255, 255, 0.15);">
+                    <div class="card-header" style="background-color: rgba(0, 0, 0, 0.3);">
+                        <h3>{{t.name}}</h3>
+                    </div>
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-6 text-left">
+                                {% if t.typ == 'T' %}
+                                <h4 style="color: gold;">Turniej</h4>
+                                {% else %}
+                                <h4 style="color: silver;">Liga</h4>
+                                {% endif%}
+                                <h4>Graczy: {{t.actual}} / {{t.number_of_players}}</h4>
+
+                            </div>
+                            <div class="col-6 text-right">
+                                {% if t.checked %}
+                                <a class="btn btn-danger w-100 m-1" href="/leave/{{t.id}}" role="button">Opuść</a>
+                                {% else %}
+                                <a class="btn btn-success w-100 m-1" href="/join/{{t.id}}" role="button">Dołącz</a>
+                                {%endif%}
+                                <!-- <a class="btn btn-primary w-100 m-1" href="/match_{{t.id}}" role="button">Spotkania</a> -->
+                                {% if t.actual == t.number_of_players %}
+                                <a class="btn btn-primary w-100 m-1" href="/ladder_{{t.id}}" role="button">Drabinka</a>
+                                {% else %}
+                                <a class="btn btn-primary w-100 m-1 disabled" href="/ladder_{{t.id}}" role="button"
+                                    disabled>Drabinka</a>
+                                {%endif%}
+
+                                <p>
+                                    <button class="btn btn-primary w-100 m-1" type="button" data-toggle="collapse"
+                                        data-target="#collapse{{t.id}}" aria-expanded="false"
+                                        aria-controls="collapse{{t.id}}">
+                                        Lista graczy
+                                    </button>
+                                </p>
+                                {% if user.is_staff or user.id == t.owner.id%}
+                                <button type="button" class="btn btn-danger w-100 m-1" data-toggle="modal" data-target="#delete{{t.id}}">
+                                    Usuń turniej
+                                </button>
+                                {%endif%}
+
+                                <div class="modal fade" id="delete{{t.id}}" tabindex="-1" role="dialog"
+                                    aria-labelledby="delete{{t.id}}" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="delete{{t.id}}">Czy na pewno chcesz usunąć turniej {{t.name}}?</h6>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Anuluj</button>
+                                                    <a class="btn btn-danger" href="/delete/{{t.id}}" role="button">Usuń</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center collapse " id="collapse{{t.id}}">
+                                {% for player in t.players%}
+                                {%if player.player.id == t.owner.id%}
+                                <p class="text-white">{{player.player.username}} - twórca </p>
+                                {%else%}
+                                {{player.player.username}}
+                                {%endif%}
+                                <hr style="background-color: seashell; width: 50%;">
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}

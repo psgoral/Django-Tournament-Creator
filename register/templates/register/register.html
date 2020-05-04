@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Create new account! {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-md-center">
+
+    <form method="POST" class="form-group p-5 col-4 rounded border " style="background-color: rgba(255, 255, 255, 0.15);">
+        
+        {% csrf_token %}
+        {{form | crispy}}
+        
+        <button type="submit" class="btn btn-success">elo</button>
+    </form>
+</div>
+{% endblock %}

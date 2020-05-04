@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+
+{%block content%}
+<div class="card bg-dark">
+    <div class="card-header text-center bg-dark">
+        <h1>{{tournament.name}} </h1>
+    </div>
+    <div class="card-body">
+        <div class="row ">
+            {% for player in players%}
+            <div class="col-4">
+                <div class="card m-3 bg-dark text-center border">
+                    <div class="card-header">
+                        <h3>{{player.player.account.username}}</h3>
+                    </div>
+                    <div class="card-body ">
+                        tedtxt
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
