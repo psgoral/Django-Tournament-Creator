@@ -166,7 +166,7 @@ def match(response,match_id):
 
     match = Match.objects.filter(id=match_id).get()
 
-    comments = Comment.objects.filter(match=match_id).order_by('date')
+    comments = Comment.objects.filter(match=match_id).order_by('date').reverse()
     print(comments)
 
     if response.method == 'POST':

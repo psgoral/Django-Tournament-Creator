@@ -7,7 +7,7 @@
         <a href="ladder_{{match.tournament.id}}" class="text-white">
             <h3>
                 <-Wróc do drabinki turnieju {{match.tournament.name}}</h3> </a> </div> <div class="card-body">
-                    <div class="row justify-content-md-center">
+                    <div class="row-12 justify-content-md-center">
                         <div class="col-8">
                             <div class="card m-2 text-center border" style="background-color: rgba(0, 0, 0, 0.65);">
                                 <div class="card-header">
@@ -130,9 +130,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row-6 justify-content-md-center">
+                        <div class="row-12 justify-content-md-center">
                             {%for comment in comments%}
-                            <div class="col-6">
+                            <div class="col-8">
                                 <h4>
                                     {{comment.author}} : {{comment.message}}
                                     <p class="small text-white text-right" style="font-size:12px">{{comment.date}}</p>
