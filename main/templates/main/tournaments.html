@@ -28,11 +28,20 @@
 
                             </div>
                             <div class="col-6 text-right">
-                                {% if t.checked %}
-                                <a class="btn btn-danger w-100 m-1" href="/leave/{{t.id}}" role="button">Opuść</a>
+                                {% if user.is_authenticated%}
+                                    {% if t.checked %}
+                                    <a class="btn btn-danger w-100 m-1" href="/leave/{{t.id}}" role="button">Opuść</a>
+                                    {% else %}
+                                    <a class="btn btn-success w-100 m-1" href="/join/{{t.id}}" role="button">Dołącz</a>
+                                    {%endif%}
                                 {% else %}
-                                <a class="btn btn-success w-100 m-1" href="/join/{{t.id}}" role="button">Dołącz</a>
+                                    {% if t.checked %}
+                                    <a class="btn btn-danger w-100 m-1 disabled" href="/leave/{{t.id}}" role="button" disabled>Opuść</a>
+                                    {% else %}
+                                    <a class="btn btn-success w-100 m-1 disabled" href="/join/{{t.id}}" role="button" disabled>Dołącz</a>
+                                    {%endif%}
                                 {%endif%}
+
                                 <!-- <a class="btn btn-primary w-100 m-1" href="/match_{{t.id}}" role="button">Spotkania</a> -->
                                 {% if t.actual == t.number_of_players %}
                                 <a class="btn btn-primary w-100 m-1" href="/ladder_{{t.id}}" role="button">Drabinka</a>

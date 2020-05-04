@@ -1,3 +1,4 @@
+#!/bin/bash
 git add -A
-git commit -m "deplot-script"
+git commit -m "deploy-script"
 git push heroku master
