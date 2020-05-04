@@ -190,7 +190,7 @@ def match(response,match_id):
 
         new = form.save(commit=False)
 
-        new.author = currend_user
+        new.author = current_user
         new.save()
 
         return redirect('/match_' + str(match_id))
@@ -198,10 +198,11 @@ def match(response,match_id):
         form = newComment()
         match = Match.objects.filter(id=match_id).get()
 
-        
+        comments = Comment.objects.filter(id=match_id).get()
         context = {
             'match' : match,
-            'form' : form
+            'form' : form,
+            'comments' : comments 
         }
 
         return render(response,'main/match.html',context)
