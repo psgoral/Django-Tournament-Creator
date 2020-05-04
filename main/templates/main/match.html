@@ -128,10 +128,11 @@
                                     </div>
 
                                 </div>
+                                <hr style="background-color: gold;">
                                 <div class="card-body mt-2">
                                     {%for comment in comments%}
-                                    <div class="col mt-1 p-2 text-center">
-                                        <h4>
+                                    <div class="col-6 mt-1 p-2 text-center">
+                                        <h4 class="text-left">
                                             {{comment.author}} : {{comment.message}}
                                             <p class="small text-white text-right" style="font-size:12px">
                                                 {{comment.date}}</p>
