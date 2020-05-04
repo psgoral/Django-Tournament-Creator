@@ -130,16 +130,20 @@
                                 </div>
                             </div>
                         </div>
-                            {%for comment in comments%}
-                            <div class="col-8">
-                                <h4>
-                                    <p class="small text-white">{{comment.date}}</p> {{comment.author}} : {{comment.message}}
-                                </h4>
-                            </div>
-                            <hr style="background-color: orangered;">
-                            {%endfor%}
+                    </div>
+                    <div class="row-8">
+                        {%for comment in comments%}
+                        <div class="col-6">
+                            <h4>
+                                {{comment.author}} : {{comment.message}}
+                                <p class="small text-white text-right" style="font-size:6px">{{comment.date}}</p>
+                            </h4>
+                        </div>
+                        <hr style="background-color: orangered;">
+                        {%endfor%}
                     </div>
     </div>
+</div>
 </div>
 </div>
 {% endblock %}
