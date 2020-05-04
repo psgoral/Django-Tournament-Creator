@@ -75,11 +75,11 @@ class Match(models.Model):
     )
 
 class Comment(models.Model):
-    match = Model.ForeignKey(
+    match = models.ForeignKey(
         Match,
         on_delete=models.CASCADE)
 
-    author = Model.ForeignKey(
+    author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE)
     
