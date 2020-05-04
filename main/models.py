@@ -77,7 +77,7 @@ class Match(models.Model):
 class Comment(models.Model):
     match = models.ForeignKey(
         Match,
-        on_delete=models.CASCADE)
+        on_delete=models.CASCADE) 
 
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
