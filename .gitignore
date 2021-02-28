@@ -11,7 +11,8 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media
-/static/
+static/
+staticfiles/
 gg/staticfiles/
 gg/static/
 
