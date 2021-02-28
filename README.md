@@ -1,24 +1,38 @@
-# EZ-PLAY - Django Tournament Creator
+# 🎮EZ-PLAY - Django Tournament Creator
 
 Website application for creating tournament trees with random matchmaking and tournament progress tracking. 
 
-## Getting Started
+## 🕹️✔️Working Demo
 
-Player after login can join to existing tournament or create new one. 
+https://ez-play.herokuapp.com/
+
+## 🕹️Getting Started
+
+Player after login can join to existing tournament or create new one.
+
 Tournament tree will be draw when last player joined to tournament.
+
 Players can upload score in own matches, if both scores are same, then winner advance to next round.
+
 If uploaded scores are different or someone didn't upload score, then admin/mod can edit score.
+
 Everyone can comment matches.
 
-## TODO
+## 📝TODO
 
 -League format,
+
 -Bigger trees,
--Adding players without accounts
+
+-Adding players without accounts,
+
 -Private tournament (invite via link)
 
-## TOOLS
+## 🛠️TOOLS
+
 Python, Django, Bootstrap
+
+
 
 
 
