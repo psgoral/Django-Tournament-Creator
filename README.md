@@ -10,9 +10,9 @@ https://ez-play.herokuapp.com/
 
 Player after login can join to existing tournament or create new one.
 
-Tournament tree will be draw when last player joined to tournament.
+Tournament tree will be drawn when last player joined to tournament.
 
-Players can upload score in own matches, if both scores are same, then winner advance to next round.
+Players can upload score in own matches, if both scores are same, then winner advance to the next round.
 
 If uploaded scores are different or someone didn't upload score, then admin/mod can edit score.
 
